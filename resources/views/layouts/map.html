@@ -1,0 +1,134 @@
+<meta charset="utf-8">
+<style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var map;
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+    var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 60000 };
+    if (navigator.geolocation) {
+        var timeoutVal = 10 * 1000 * 1000;
+         componentDidMount()
+        {
+            navigator.geolocation.watchPosition(
+                displayPosition,
+                displayError,
+                options
+            );}
+
+    }
+    else {
+        alert("Geolocation is not supported by this browser");
+    }
+
+    function displayPosition(position) {
+        alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    }
+    function displayError(error) {
+        var errors = {
+            1: 'Permission denied',
+            2: 'Position unavailable',
+            3: 'Request timeout'
+        };
+        alert("Error: " + errors[error.code]);
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDidJ4tXB7nwyQ8pTPKSoZWQVlOVF4xGmU&callback=initMap"
+        async defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<meta charset="utf-8">-->
+<!--<style>-->
+    <!--/* Always set the map height explicitly to define the size of the div-->
+     <!--* element that contains the map. */-->
+    <!--#map {-->
+        <!--height: 100%;-->
+    <!--}-->
+    <!--/* Optional: Makes the sample page fill the window. */-->
+    <!--html, body {-->
+        <!--height: 100%;-->
+        <!--margin: 0;-->
+        <!--padding: 0;-->
+    <!--}-->
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="map"></div>-->
+<!--<script>-->
+    <!--var map;-->
+
+
+    <!--function initMap() {-->
+        <!--map = new google.maps.Map(document.getElementById('map'), {-->
+            <!--center: {lat: -34.397, lng: 150.644},-->
+            <!--zoom: 8-->
+        <!--});-->
+    <!--}-->
+    <!--if (navigator.geolocation) {-->
+        <!--var timeoutVal = 10 * 1000 * 1000;-->
+        <!--navigator.geolocation.getCurrentPosition(-->
+            <!--displayPosition,-->
+            <!--displayError,-->
+            <!--{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }-->
+        <!--);-->
+    <!--}-->
+    <!--else {-->
+        <!--alert("Geolocation is not supported by this browser");-->
+    <!--}-->
+
+    <!--function displayPosition(position) {-->
+        <!--alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);-->
+    <!--}-->
+    <!--function displayError(error) {-->
+        <!--var errors = {-->
+            <!--1: 'Permission denied',-->
+            <!--2: 'Position unavailable',-->
+            <!--3: 'Request timeout'-->
+        <!--};-->
+        <!--alert("Error: " + errors[error.code]);-->
+    <!--}-->
+<!--</script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDidJ4tXB7nwyQ8pTPKSoZWQVlOVF4xGmU&callback=initMap"-->
+        <!--async defer></script>-->
+<!--</body>-->
+<!--</html>-->
